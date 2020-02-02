@@ -26,11 +26,14 @@ The real magic of our implemtation happens in the body of ``models.networks.Pool
 
 ## Installation
 The code is developed using Python 3.6 on Ubuntu 16.04. The models were trained and tested with NVIDIA 2080 Ti.
-* [Pytorch](https://pytorch.org/) (1.3.0)
-* [Pytorch Geometric](https://github.com/rusty1s/pytorch_geometric) (1.3.0)
-* [OpenMesh](https://github.com/nmaxwell/OpenMesh-Python) (1.1.3)
-* [MPI-IS Mesh](https://github.com/MPI-IS/mesh): We suggest to install this library from the source.
-* [tqdm](https://github.com/tqdm/tqdm)
+
+* conda install pytorch==1.3.0 cudatoolkit=10.0 -c pytorch #compile a torch version compatible with cuda10.0
+* pip install torchvision==0.3.0
+* install [Pytorch Geometric](https://github.com/rusty1s/pytorch_geometric) (1.3.0) according to [INSTALL](https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html) **line by line**s.
+.Especially, the extension package. 
+* pip install openmesh==1.1.3
+* install [MPI-IS Mesh](https://github.com/MPI-IS/mesh): We suggest to install this library from the source. Need to install libboost-dev yourself, if you don't have administration right, you need compile it yourself.
+* install [tqdm](https://github.com/tqdm/tqdm)
 
 ## Interpolation Experiment
 Following the same split as described in the paper, the dataset is split in training and test samples with a ratio of 9:1. Run the script below to train and evaluet the model. The checkpoints of each epoch is saved in the corresponding output folder (specifed by the vairable ``exp_name``).  After training, it outputs the result of the "Mean Error with the Standard Deviation" as well as "Median Error", which are saved in the file ``euc_error.txt``.
